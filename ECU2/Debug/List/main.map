@@ -1,0 +1,249 @@
+###############################################################################
+#
+# IAR ELF Linker V9.32.1.338/W64 for ARM                  17/Nov/2023  20:32:46
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Exe\main.out
+#    Map file     =
+#        C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\List\main.map
+#    Command line =
+#        -f "C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Exe\main.out.rsp" ("C:\My
+#        Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\main.o"
+#        "C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\Port_Config.o" "C:\My
+#        Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\scheduler.o" "C:\My
+#        Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\SPI.o"
+#        "C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\startup_ewarm.o" "C:\My
+#        Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\SysTick.o"
+#        --no_out_extension -o "C:\My Stuff\College\Semester
+#        9\AUTOSAR\04-Midterm\ECU2\Debug\Exe\main.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map "C:\My
+#        Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\List\main.map"
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/TexasInstruments/TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=None)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section            Kind         Address   Size  Object
+  -------            ----         -------   ----  ------
+"A0":                                      0x26c
+  .intvec            const            0x0  0x26c  startup_ewarm.o [1]
+                                  - 0x26c  0x26c
+
+"P1":                                      0x884
+  .text              ro code        0x26c  0x484  SPI.o [1]
+  .text              ro code        0x6f0  0x15c  main.o [1]
+  .text              ro code        0x84c   0x84  Port_Config.o [1]
+  .text              ro code        0x8d0   0x4c  SysTick.o [1]
+  .text              ro code        0x91c   0x90  scheduler.o [1]
+  .text              ro code        0x9ac   0x38  zero_init3.o [3]
+  .text              ro code        0x9e4   0x2a  copy_init3.o [3]
+  .text              ro code        0xa10   0x28  data_init.o [3]
+  .iar.init_table    const          0xa38   0x24  - Linker created -
+  .text              ro code        0xa5c   0x1e  startup_ewarm.o [1]
+  .text              ro code        0xa7c   0x1c  cstartup_M.o [3]
+  .text              ro code        0xa98   0x1e  cmain.o [3]
+  .text              ro code        0xab6    0x4  low_level_init.o [2]
+  .text              ro code        0xaba    0x4  exit.o [2]
+  .text              ro code        0xac0    0xa  cexit.o [3]
+  .text              ro code        0xacc   0x14  exit.o [4]
+  .rodata            const          0xae0    0xc  main.o [1]
+  Initializer bytes  const          0xaec    0x4  <for P2-1>
+  .rodata            const          0xaf0    0x0  zero_init3.o [3]
+  .rodata            const          0xaf0    0x0  copy_init3.o [3]
+                                  - 0xaf0  0x884
+
+"P2", part 1 of 3:                           0x4
+  P2-1                        0x2000'0000    0x1  <Init block>
+    .data            inited   0x2000'0000    0x1  main.o [1]
+                            - 0x2000'0001    0x1
+
+"P2", part 2 of 3:                          0xbc
+  .bss               zero     0x2000'0004   0xa0  scheduler.o [1]
+  .bss               zero     0x2000'00a4    0x8  scheduler.o [1]
+  .bss               zero     0x2000'00ac    0x4  scheduler.o [1]
+  .bss               zero     0x2000'00b0    0x4  scheduler.o [1]
+  .bss               zero     0x2000'00b4    0x4  SysTick.o [1]
+  .bss               zero     0x2000'00b8    0x4  SysTick.o [1]
+  .bss               zero     0x2000'00bc    0x1  main.o [1]
+  .bss               zero     0x2000'00bd    0x1  main.o [1]
+                            - 0x2000'00be   0xba
+
+"P2", part 3 of 3:                         0x200
+  .noinit            uninit   0x2000'00c0  0x200  startup_ewarm.o [1]
+                            - 0x2000'02c0  0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0xaf0     0x3'ffff  0x3'f510
+  0x2000'02c0  0x2000'7fff    0x7d40
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xba:
+          0x2000'0004  0xba
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x4 (400% of destination):
+                0xaec   0x4
+    1 destination range, total size 0x1:
+          0x2000'0000   0x1
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\My Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj: [1]
+    Port_Config.o         132
+    SPI.o               1'156
+    SysTick.o              76                 8
+    main.o                348       13        3
+    scheduler.o           144               176
+    startup_ewarm.o        30      620      512
+    -------------------------------------------
+    Total:              1'886      633      699
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+rt7M_tl.a: [3]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           42
+    cstartup_M.o           28
+    data_init.o            40
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                206
+
+shb_l.a: [4]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    8
+    Linker created                  39
+-----------------------------------------------
+    Grand Total:        2'128      672      699
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xa38          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xa5c          --   Gb  - Linker created -
+?main                         0xa99         Code  Gb  cmain.o [3]
+CurrentState            0x2000'00bc    0x1  Data  Gb  main.o [1]
+FaultISR                      0xa77    0x2  Code  Lc  startup_ewarm.o [1]
+GPIO_Init                     0x84d   0x46  Code  Gb  Port_Config.o [1]
+GPIO_ReadPin                  0x893   0x12  Code  Gb  Port_Config.o [1]
+GPIO_WritePort                0x8a5    0xa  Code  Gb  Port_Config.o [1]
+IntDefaultHandler             0xa79    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                         0xa75    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0xa38          --   Gb  - Linker created -
+Region$$Table$$Limit          0xa5c          --   Gb  - Linker created -
+ResetISR                      0xa5d   0x12  Code  Gb  startup_ewarm.o [1]
+SPI_SendData                  0x5e7   0x6a  Code  Gb  SPI.o [1]
+SendState               0x2000'00bd    0x1  Data  Gb  main.o [1]
+Slave_Init                    0x26d  0x37a  Code  Gb  SPI.o [1]
+StateLed                0x2000'0000    0x1  Data  Gb  main.o [1]
+SysTick_Handler               0x8eb   0x1e  Code  Gb  SysTick.o [1]
+SysTick_Setup_Second          0x8d1   0x1a  Code  Gb  SysTick.o [1]
+__cmain                       0xa99         Code  Gb  cmain.o [3]
+__exit                        0xacd   0x14  Code  Gb  exit.o [4]
+__iar_copy_init3              0x9e5   0x2a  Code  Gb  copy_init3.o [3]
+__iar_data_init3              0xa11   0x28  Code  Gb  data_init.o [3]
+__iar_program_start           0xa7d         Code  Gb  cstartup_M.o [3]
+__iar_zero_init3              0x9ad   0x38  Code  Gb  zero_init3.o [3]
+__low_level_init              0xab7    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                    0xaa5         Code  Gb  cmain.o [3]
+_exit                         0xac1         Code  Gb  cexit.o [3]
+array                   0x2000'0004   0xa0  Data  Gb  scheduler.o [1]
+counter                 0x2000'00b4    0x4  Data  Gb  SysTick.o [1]
+exit                          0xabb    0x4  Code  Gb  exit.o [2]
+flag                    0x2000'00b8    0x4  Data  Gb  SysTick.o [1]
+i                       0x2000'00b0    0x4  Data  Gb  scheduler.o [1]
+main                          0x7f9   0x3a  Code  Gb  main.o [1]
+pui32Stack              0x2000'00c0  0x200  Data  Lc  startup_ewarm.o [1]
+t_identifier            0x2000'00a4    0x8  Data  Gb  scheduler.o [1]
+task_i                  0x2000'00ac    0x4  Data  Gb  scheduler.o [1]
+task_init                     0x91d   0x24  Code  Gb  scheduler.o [1]
+task_readState                0x7b9   0x40  Code  Gb  main.o [1]
+task_sched                    0x941   0x54  Code  Gb  scheduler.o [1]
+task_switchStates             0x6f1   0xc8  Code  Gb  main.o [1]
+
+
+[1] = C:\My Stuff\College\Semester 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj
+[2] = dl7M_tln.a
+[3] = rt7M_tl.a
+[4] = shb_l.a
+
+  2'128 bytes of readonly  code memory
+    672 bytes of readonly  data memory
+    699 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,100 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\main.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\main.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Port_Config.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Port_Config.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\scheduler.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\scheduler.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SPI.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SPI.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\startup_ewarm.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\startup_ewarm.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SysTick.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SysTick.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\main.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Port_Config.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\scheduler.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SPI.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\startup_ewarm.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\SysTick.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbw : MAKEBROWSE C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbd
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbd" -output "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbw"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part0.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part0.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\Port_Config.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part1.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part1.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\scheduler.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SPI.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part2.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part2.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\startup_ewarm.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\SysTick.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbd : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part0.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part1.pbi $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part2.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main.pbd" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part0.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part1.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\04-Midterm\ECU2\Debug\BrowseInfo\main_part2.pbi"
+
